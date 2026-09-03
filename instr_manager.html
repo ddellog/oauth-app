@@ -1,0 +1,140 @@
+<title>Как заполнять площадку</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#fff; --ink:#1c2230; --muted:#5a6473; --line:#e2e6ec;
+  --ok:#0a7a2f; --okbg:#eaf7ee; --bad:#b0242f; --badbg:#fdeced; --accent:#6b46c1; --warn:#946200; --warnbg:#fff7e6;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14171c; --card:#1d2127; --ink:#e8ebf0; --muted:#9aa4b2; --line:#2c323b;
+  --ok:#5fd88a; --okbg:#16301f; --bad:#f0888f; --badbg:#3a1d20; --accent:#b79df0; --warn:#e5c07a; --warnbg:#33290f;
+}}
+:root[data-theme="dark"]{
+  --bg:#14171c; --card:#1d2127; --ink:#e8ebf0; --muted:#9aa4b2; --line:#2c323b;
+  --ok:#5fd88a; --okbg:#16301f; --bad:#f0888f; --badbg:#3a1d20; --accent:#b79df0; --warn:#e5c07a; --warnbg:#33290f;
+}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 64px}
+h1{font-size:26px;margin:8px 0 4px}
+h2{font-size:20px;margin:34px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+h3{font-size:16px;margin:20px 0 6px}
+p,li{color:var(--ink)}
+.lead{color:var(--muted);font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;vertical-align:middle}
+.tag.y{background:var(--okbg);color:var(--ok)} .tag.n{background:var(--badbg);color:var(--bad)}
+.ex{border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14px}
+.ex.ok{background:var(--okbg);border:1px solid color-mix(in srgb,var(--ok) 35%,transparent)}
+.ex.bad{background:var(--badbg);border:1px solid color-mix(in srgb,var(--bad) 35%,transparent)}
+.ex b{font-variant:small-caps;letter-spacing:.03em}
+.ex .m{color:var(--muted);font-size:13px}
+.pill{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);border-radius:6px;padding:1px 7px;font-weight:600;font-size:13px;white-space:nowrap}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+code{background:color-mix(in srgb,var(--ink) 8%,transparent);padding:1px 5px;border-radius:4px;font-size:13px}
+.steps{counter-reset:s;list-style:none;padding-left:0}
+.steps li{counter-increment:s;position:relative;padding-left:34px;margin:8px 0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:23px;height:23px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.note{background:var(--warnbg);border:1px solid color-mix(in srgb,var(--warn) 40%,transparent);border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14px}
+.tmp{background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px dashed var(--accent);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--muted)}
+.arrow{color:var(--muted)}
+</style>
+<div class="wrap">
+
+<h1>Как заполнять площадку</h1>
+<p class="lead">Короткая памятка: что и в какие поля писать во вкладке <span class="pill">МЕНЕДЖЕР</span> у площадки. С примерами.</p>
+
+<div class="tmp">⏳ <b>Временная инструкция.</b> Скоро единственно верная версия будет жить рядом с кодом на сервере и открываться через систему. Пока — эта.</div>
+
+<h2>Где это всё редактируется</h2>
+<p>Открываешь площадку на сайте и переходишь во вкладку <b>МЕНЕДЖЕР</b>:</p>
+<ol class="steps">
+  <li>Заходишь на карточку площадки: <code>https://www.speedrent.ru/venue/&lt;номер&gt;/edit/manager</code> (номер — из карточки, он же в колонке B таблицы).</li>
+  <li>Сверху три вкладки: <b>Условия площадки</b> · <b class="pill">Менеджер</b> · <b>Владелец</b> — нужна средняя.</li>
+  <li>Слева блоки: <b>Описание</b>, <b>Тип здания</b>, <b>Вместимость</b> и т.д. Правишь только то, что описано ниже.</li>
+</ol>
+
+<h2>1. Бренд ≠ имя зала. Не путать!</h2>
+<p>Это разные вещи и разные поля.</p>
+<table>
+  <tr><th>Поле</th><th>Что туда идёт</th><th>Пример</th></tr>
+  <tr><td><b>Бренд</b></td><td>Название компании/сети целиком.Сайт сам подставит его рядом с названием.</td><td><span class="pill">Loft Factura (Лофт Фактура)</span></td></tr>
+  <tr><td><b>Название зала</b> (и СР/РТ)</td><td>Как называется <i>конкретный зал</i> — по сути или по собственному имени. Без бренда.</td><td>Кирпичный зал с панорамными окнами <span class="arrow">·</span> или собственное имя: Зал «Аврора»</td></tr>
+</table>
+
+<div class="ex bad"><b>Нельзя</b> — бренд внутри названия зала:<br>Название: «Loft Factura. Кирпичный зал» <span class="m">← «Loft Factura» — это бренд, ему не место в названии</span></div>
+<div class="ex ok"><b>Правильно</b>:<br>Бренд: «Loft Factura (Лофт Фактура)» &nbsp;•&nbsp; Название зала: «Кирпичный зал с панорамными окнами»</div>
+
+<h3>Собственное имя зала — это можно</h3>
+<p>Если у зала есть <b>своё имя</b> (не бренд сети, а имя именно этого зала) — оно остаётся в названии и одинаково на обоих сайтах.</p>
+<div class="ex ok">Банкетный зал «Аврора» &nbsp;•&nbsp; Зал BREEZE (Бриз) &nbsp;•&nbsp; Теплоход «Олимпиада»<br><span class="m">Это имена залов, а не бренды — сохраняем.</span></div>
+<div class="note">Как отличить: <b>бренд</b> повторяется у всех залов площадки (сеть, компания). <b>Имя зала</b> — только у этого зала. «Премьер» у сети из 20 залов — бренд; «Аврора» у одного конкретного зала — имя.</div>
+
+<h2>2. Два названия: для СР и для РТ</h2>
+<p>У площадки два «сайта-витрины»:</p>
+<ul>
+  <li><b>Название СР</b> <span class="arrow">→</span> показывается на <b>speedrent.ru</b></li>
+  <li><b>Название РТ</b> <span class="arrow">→</span> показывается на <b>reveltime.ru</b></li>
+</ul>
+<div class="note">⚠️ <b>Название для РТ теперь правится только здесь, во вкладке Менеджер.</b> Раньше оно жило в другом месте — больше так нельзя, только отсюда.</div>
+<p>Если площадка работает на <b>обоих</b> сайтах и у зала <b>нет</b> собственного имени — названия СР и РТ должны <b>чуть-чуть различаться</b> (разным хвостом-фактом), чтобы не были копией друг друга.</p>
+<div class="ex ok">СР: «Светлый лофт с кирпичными стенами площадью 90 м²»<br>РТ: «Светлый лофт с кирпичными стенами до 50 гостей»<br><span class="m">Начало одинаковое, хвост разный.</span></div>
+<p>Если у зала есть собственное имя — на обоих сайтах пишем <b>одинаково</b>, ничего не выдумываем.</p>
+<div class="ex ok">СР и РТ: «Банкетный зал „Аврора"»</div>
+<p>Если площадка работает <b>только на одном</b> сайте — поле второго не трогаем.</p>
+
+<h2>3. Что в названии ЗАПРЕЩЕНО</h2>
+
+<h3>Гео — вообще никакое</h3>
+<p>Ни города, ни района, ни улицы, ни метро, ни «в центре», ни «в 5 минутах от…».</p>
+<div class="ex bad"><b>Нельзя</b>: «Лофт у метро Площадь Восстания» · «Зал в центре Москвы» · «Банкетный зал на Мантулинской» · «Студия в 5 мин от метро»</div>
+<div class="ex ok"><b>Можно</b>: «Лофт с высокими потолками» · «Банкетный зал площадью 100 м²»<br><span class="m">Метраж, вместимость, этаж, фичи — ок. Место — нет.</span></div>
+
+<h3>Прямые кавычки <code>"</code> и <code>'</code></h3>
+<div class="ex bad"><b>Нельзя</b>: Зал "Гималаи"</div>
+<div class="ex ok"><b>Можно</b>: Зал «Гималаи» <span class="m">(ёлочки)</span> — или вообще без кавычек: Зал Гималаи</div>
+
+<h3>Допуслуги, которые «фонят» в поиске</h3>
+<p>Не пишем в название: <b>караоке, бассейн, сцена, проектор, мангал/барбекю/гриль, веранда, бильярд, пианино/рояль, приставки, детская комната</b>. По ним свои подборки — название площадки с ними конкурирует само с собой.</p>
+<div class="ex bad"><b>Нельзя</b>: «Лофт с караоке и бассейном»</div>
+<div class="ex ok"><b>Можно</b>: «Лофт с кирпичными стенами» <span class="m">(камин, барная стойка, экран, ТВ, звук, кухня, зеркала, танцпол — это ок, оставляем)</span></div>
+
+<h3>Английские слова</h3>
+<p>Обычные английские слова переписываем по-русски. Собственное английское имя зала — оставляем и добавляем транслит в скобках.</p>
+<div class="ex bad"><b>Нельзя</b>: «VIP-зал», «event-пространство», «LED-экран»</div>
+<div class="ex ok"><b>Можно</b>: «ВИП-зал», «пространство для мероприятий», «светодиодный экран»<br>Имя зала: «Зал ARENA (Арена)», «Зал Blue (Блю)»</div>
+
+<h2>4. Тип площадки — по фото и описанию, не «всё подряд»</h2>
+<p>Самая частая ошибка — отметить <b>десяток типов сразу</b>. Ставим <b>1–2 типа (максимум 3)</b>, которые реально видно на фото и в описании.</p>
+<div class="ex bad"><b>Нельзя</b>: Актовый зал; Антикафе; Арт-пространство; Аудитория; Класс; Конференц-зал; Концертный зал; Переговорная; Помещение; Пространство <span class="m">← так «на всякий случай» — неверно</span></div>
+<div class="ex ok"><b>Правильно</b> (для зала с зеркалами и станком на фото): Танцевальный зал <span class="m">— и всё, максимум + Спортзал</span></div>
+
+<h3>Что НЕ является типом</h3>
+<ul>
+  <li><b>«Площадка», «Помещение», «Место», «Зона»</b> — это не тип. Нужен настоящий: лофт, зал, студия, бар…</li>
+  <li><b>«Караоке»</b> — это заведение, а не тип. Зал внутри: «Бар» или «Зал в караоке-клубе».</li>
+  <li><b>Отель, гостиница, театр, музей, школа</b> — «контейнеры». Не бывает «Отель площадью 50 м²» — бывает «Зал в отеле».</li>
+  <li><b>«Переговорная»</b> — только если ≤ 30 м². Больше — это уже зал/конференц-зал.</li>
+</ul>
+
+<h2>5. Кораблики: людей, а не метры 🚢</h2>
+<p>Для <b>катеров, теплоходов, яхт</b> площадь в квадратных метрах бессмысленна — заполняем <b>вместимость (число людей)</b>.</p>
+<div class="ex bad"><b>Нельзя</b>: Теплоход, 120 м²</div>
+<div class="ex ok"><b>Правильно</b>: Теплоход, вместимость 120 человек</div>
+<p>И тип у судна — одно из трёх: <b>Катер</b>, <b>Теплоход</b> или <b>Яхта</b> + имя судна. Не «Катера, теплоходы и яхты» (это категория, а не тип).</p>
+<div class="ex ok">«Теплоход „Москва-2"» · «Яхта Fortuna (Фортуна)»</div>
+
+<h2>Короткий чек-лист перед сохранением</h2>
+<ul>
+  <li>✔️ Бренда нет внутри названия зала (он в своём поле).</li>
+  <li>✔️ В названии нет гео, прямых кавычек, стоп-допуслуг, английских слов.</li>
+  <li>✔️ Типов 1–3, и они реально видны на фото/в описании.</li>
+  <li>✔️ У судна заполнена вместимость, а не метраж.</li>
+  <li>✔️ Если два сайта и нет своего имени — СР и РТ немного разные.</li>
+  <li>✔️ Собственное имя зала («Аврора») сохранено; бренд сети — нет.</li>
+</ul>
+
+<div class="tmp" style="margin-top:24px">Вопросы и спорные площадки — не гадать, а спросить у Олега.</div>
+
+</div>
